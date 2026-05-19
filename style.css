@@ -1,0 +1,74 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; overflow: hidden; width: 100vw; height: 100vh; }
+
+  /* Camera feed */
+  #v_src {
+    position: absolute; top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    object-fit: cover;
+    transform: scaleX(-1);
+    z-index: 1;
+  }
+
+  /* Skeleton canvas — mirrored to match camera */
+  #skeleton {
+    position: absolute; top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 3; pointer-events: none;
+    transform: scaleX(-1);
+  }
+
+  /* Jutsu video elements — screen blend makes black transparent */
+  .fx {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    display: none;
+    mix-blend-mode: screen;
+    z-index: 4;
+    /* No scaleX mirror — videos are already centered/symmetric */
+  }
+  /* Rasengan: compact sphere ~1600px so it looks large */
+  #n { width: 600px; height: auto; }
+  /* Chidori: wide lightning — fill large area */
+  #s { width: 900px; height: auto; }
+
+  /* HUD label */
+  #label {
+    position: fixed; bottom: 32px; left: 50%;
+    transform: translateX(-50%);
+    font-family: serif; font-size: 2.2rem;
+    letter-spacing: 8px; font-weight: bold;
+    color: #00cfff; text-transform: uppercase;
+    text-shadow: 0 0 30px #00cfff, 0 0 60px #0066ff;
+    pointer-events: none; z-index: 10;
+    opacity: 0; transition: opacity 0.25s;
+    white-space: nowrap;
+  }
+
+  /* Start overlay */
+  #overlay {
+    position: fixed; inset: 0; z-index: 99;
+    background: #000;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 28px;
+  }
+  #overlay h1 {
+    font-family: serif; font-size: 2.8rem;
+    color: #ff6a00; letter-spacing: 10px; text-transform: uppercase;
+  }
+  #overlay p {
+    font-family: sans-serif; font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    text-align: center; line-height: 2.4; letter-spacing: 1px;
+  }
+  #startBtn {
+    padding: 14px 48px;
+    border: 1.5px solid #ff6a00;
+    background: transparent; color: #ff6a00;
+    font-family: sans-serif; font-size: 16px;
+    letter-spacing: 4px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.25s;
+  }
+  #startBtn:hover { background: #ff6a00; color: #000; }
+
