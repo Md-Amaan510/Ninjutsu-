@@ -1,2 +1,2 @@
-# Ninjutsu-
+# Ninjutsu
 Ninju by coding 
