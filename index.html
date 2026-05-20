@@ -249,7 +249,7 @@ function render() {
     nVid.style.display   = 'block';
     nVid.style.left      = c.x + 'px';
     nVid.style.top       = c.y + 'px';
-    nVid.style.opacity   = pwr.left;
+    nVid.style.opacity   = pwr.left * 0.8;
     const sc = 0.5 + pwr.left * 0.5;
     nVid.style.transform = `translate(-50%,-50%) scale(${sc})`;
   } else if (pwr.left <= 0.01) {
@@ -261,7 +261,7 @@ function render() {
     sVid.style.display   = 'block';
     sVid.style.left      = c.x + 'px';
     sVid.style.top       = c.y + 'px';
-    sVid.style.opacity   = pwr.right;
+    sVid.style.opacity   = pwr.right * 0.8;
     const sc = 0.5 + pwr.right * 0.5;
     sVid.style.transform = `translate(-50%,-50%) scale(${sc})`;
   } else if (pwr.right <= 0.01) {
